@@ -1,3 +1,5 @@
+Warning: you need the Metaspex product to compile this application. Please contact us at info@metaspex.com to get access to the Metaspex product.
+
 This sample Metaspex application leverages the directory and contains all the bundled identity management
 services offered by the Foundation Ontology. As such it is not just a sample, but a complete identity
 management solution and more. See the reference guide for all the services bundled.
