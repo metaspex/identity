@@ -6,7 +6,7 @@ management solution and more. See the reference guide for all the services bundl
 
 To compile:
 
-make
+    make
 
 It will compile the application for use alongside Apache and Nginx, both in debug and optimized
 versions.
@@ -27,7 +27,7 @@ The creation of the directory and the associated indexes is made in the configur
 Consult the code of the script and update the credentials and possibly other configuration parameters.
 Then run it:
 
-./configure.sh
+    ./configure.sh
 
 Couchbase takes a long time to create all the indexes, be patient.
 
@@ -35,44 +35,43 @@ Go down (cd) into the Web server of your choice (apache or nginx) and the varian
 
 To load (or reload) the module in the Web server:
 
-make server
+    make server
 
 To test that the module was properly installed (use port 8080 for the default Apache configuration and 8081 for Nginx):
 
-curl http://localhost:8081/_
+    curl http://localhost:8081/_
 
 It should display the "Ave" message, which is something like:
 
-{"hx2a":"Ave","Nginx version":"1.20.2","hx2a version":"2.0.3","hx2a build date":"Mar 14 2022 09:01:41"}
+    {"hx2a":"Ave","Nginx version":"1.20.2","hx2a version":"2.0.3","hx2a build date":"Mar 14 2022 09:01:41"}
 
 Then you can test a login service, using the root user created in the directory. Adjust the password to the password you chose.
 Using curl in verbose mode:
 
-$ curl -v http://localhost:8081/_login -d '{"uid": "root", "pwd": "Cla$$1fy"}'
-*   Trying 127.0.0.1:8081...
-* Connected to localhost (127.0.0.1) port 8081 (#0)
-> POST /_login HTTP/1.1
-> Host: localhost:8081
-> User-Agent: curl/7.78.0
-> Accept: */*
-> Content-Length: 34
-> Content-Type: application/x-www-form-urlencoded
-> 
-* Mark bundle as not supporting multiuse
-< HTTP/1.1 200 OK
-< Server: nginx/1.24.0
-< Date: Tue, 27 Jun 2023 20:48:02 GMT
-< Content-Type: text/plain;charset=utf-8
-< Content-Length: 2
-< Connection: keep-alive
-< Set-Cookie: S=O/JFxCg3S26KcVQ7i6QFhqvOBi6o0ahUKoIE9k3LwaHL08BLihLZ6CJk9Zl4SoHVXRaBAYUfgvK+Y5RK4jQ2j6Gn0zShGOEk7Pjy1wx6tQGGZsJNS9pOvw;Version=1;Path=/;HttpOnly;Domain=metaspex.com
+    $ curl -v http://localhost:8081/_login -d '{"uid": "root", "pwd": "Cla$$1fy"}'
+    *   Trying 127.0.0.1:8081...
+    * Connected to localhost (127.0.0.1) port 8081 (#0)
+    > POST /_login HTTP/1.1
+    > Host: localhost:8081
+    > User-Agent: curl/7.78.0
+    > Accept: */*
+    > Content-Length: 34
+    > Content-Type: application/x-www-form-urlencoded
+    > 
+    * Mark bundle as not supporting multiuse
+    < HTTP/1.1 200 OK
+    < Server: nginx/1.24.0
+    < Date: Tue, 27 Jun 2023 20:48:02 GMT
+    < Content-Type: text/plain;charset=utf-8
+    < Content-Length: 2
+    < Connection: keep-alive
+    < Set-Cookie: S=O/JFxCg3S26KcVQ7i6QFhqvOBi6o0ahUKoIE9k3LwaHL08BLihLZ6CJk9Zl4SoHVXRaBAYUfgvK+Y5RK4jQ2j6Gn0zShGOEk7Pjy1wx6tQGGZsJNS9pOvw;Version=1;Path=/;HttpOnly;Domain=metaspex.com
 < Set-Cookie: U=eyJjIjoiMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDEiLCJpZCI6IjAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAyIiwidWlkIjoicm9vdCIsImZuIjoiIiwibG4iOiJyb290In0;Version=1;Path=/;Domain=metaspex.com
-< Set-Cookie: O=;Domain=metaspex.com;Path=/;Max-Age=0
-< 
-* Connection #0 to host localhost left intact
-{}
+    < Set-Cookie: O=;Domain=metaspex.com;Path=/;Max-Age=0
+    < 
+    * Connection #0 to host localhost left intact
+    {}
 
 We can see that the login was successful, the empty JSON object returned (at the bottom) reports that.
 We can also see the cookies set by the identity application. In particular the session cookie ("S") is set to a an encrypted value that the server will use
 in subsequent requests.
-
