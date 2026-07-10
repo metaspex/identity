@@ -11,19 +11,19 @@ To compile:
 It will compile the application for use alongside Apache and Nginx, both in debug and optimized
 versions.
 
-The hx2a.conf file is by default set to use Couchbase in index (GSI) mode to store the directory.
+The `hx2a.conf` file is by default set to use [Couchbase](https://www.couchbase.com/) in index (GSI) mode to store the directory.
 Couchbase must be installed before running this sample, if you choose to run it on this database.
 
 The configuration file contains dummy credentials, they need to be updated to match the credentials you chose when installing Couchbase.
 Please consult this reference documentation page to do so (copy/paste the URI in your browser):
 
-/usr/local/metaspex/doc/reference/hx2a.conf.html
+    /usr/local/metaspex/doc/reference/hx2a.conf.html
 
 In particular, have a look at the `directory` keyword.
 
-You can also change the database to MongoDB or CouchDB.
+You can also change the database to [MongoDB](https://www.mongodb.com/) or [CouchDB](https://couchdb.apache.org/).
 
-The creation of the directory and the associated indexes is made in the configure.sh script supplied.
+The creation of the directory and the associated indexes is made in the `configure.sh` script supplied.
 Consult the code of the script and update the credentials and possibly other configuration parameters.
 Then run it:
 
@@ -31,7 +31,7 @@ Then run it:
 
 Couchbase takes a long time to create all the indexes, be patient.
 
-Go down (cd) into the Web server of your choice (apache or nginx) and the variant (debug or opt).
+Go down (`cd`) into the Web server of your choice (`apache` or `nginx`) and the variant (`debug` or `opt`).
 
 To load (or reload) the module in the Web server:
 
