@@ -1,4 +1,4 @@
-Warning: you need the Metaspex product to compile this application. Please contact us at info@metaspex.com to get access to Metaspex.
+Warning: you need the [Metaspex](http://metaspex.com) product to compile this application. Please contact us at info@metaspex.com to get access to [Metaspex](http://metaspex.com).
 
 This sample Metaspex application leverages the directory and contains all the bundled identity management
 services offered by the Foundation Ontology. As such it is not just a sample, but a complete identity
@@ -19,7 +19,7 @@ Please consult this reference documentation page to do so (copy/paste the URI in
 
 /usr/local/metaspex/doc/reference/hx2a.conf.html
 
-In particular, have a look at the 'directory' keyword.
+In particular, have a look at the `directory` keyword.
 
 You can also change the database to MongoDB or CouchDB.
 
@@ -41,7 +41,7 @@ To test that the module was properly installed (use port 8080 for the default Ap
 
     curl http://localhost:8081/_
 
-It should display the "Ave" message, which is something like:
+It should display the `"Ave"` message, which is something like:
 
     {"hx2a":"Ave","Nginx version":"1.20.2","hx2a version":"2.0.3","hx2a build date":"Mar 14 2022 09:01:41"}
 
@@ -65,13 +65,13 @@ Using curl in verbose mode:
     < Content-Type: text/plain;charset=utf-8
     < Content-Length: 2
     < Connection: keep-alive
-    < Set-Cookie: S=O/JFxCg3S26KcVQ7i6QFhqvOBi6o0ahUKoIE9k3LwaHL08BLihLZ6CJk9Zl4SoHVXRaBAYUfgvK+Y5RK4jQ2j6Gn0zShGOEk7Pjy1wx6tQGGZsJNS9pOvw;Version=1;Path=/;HttpOnly;Domain=metaspex.com
-< Set-Cookie: U=eyJjIjoiMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDEiLCJpZCI6IjAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAyIiwidWlkIjoicm9vdCIsImZuIjoiIiwibG4iOiJyb290In0;Version=1;Path=/;Domain=metaspex.com
+    < Set-Cookie: S=O/JFxCg3xS26KcVQ7i6QFhqvOBi6o0ahUKoIE9k3LwaHL08BLihLZ6CJk9Zl4SoHVXRaBAYUfgvK+Y5RK4jQ2j6Gn0zShGOEk7Pjy1wx6tQGGZsJNS9pOvw;Version=1;Path=/;HttpOnly;Domain=metaspex.com
+    < Set-Cookie: U=eyJjIjoiMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDEiLCJpZCI6IjAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAyIiwidWlkIjoicm9vdCIsImZuIjoiIiwibG4iOiJyb290In0;Version=1;Path=/;Domain=metaspex.com
     < Set-Cookie: O=;Domain=metaspex.com;Path=/;Max-Age=0
     < 
     * Connection #0 to host localhost left intact
     {}
 
 We can see that the login was successful, the empty JSON object returned (at the bottom) reports that.
-We can also see the cookies set by the identity application. In particular the session cookie ("S") is set to a an encrypted value that the server will use
+We can also see the cookies set by the identity application. In particular the session cookie `"S"` is set to a an encrypted value that the server will use
 in subsequent requests.
